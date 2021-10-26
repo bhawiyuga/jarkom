@@ -8,20 +8,20 @@ Containernet membutuhkan perangkat host, dalam bentuk mesin fisik maupun mesin v
 2. Menggunakan mesin virtual cloud berbasis layanan AWS EC2 pada platform AWS Academy. Petunjuk penggunaan AWS Academy bagi mahasiswa UB dapat dilihat pada tautan berikut https://docs.google.com/document/d/1tEuVmvbfvvDccGbqV2BSZTLiB65iz6pNcHYl7Vk7YKA/edit?usp=sharing. Anda dapat memanfaatkan AMI berjenis Cloud9 Ubuntu dengan jenis instance t2-small. Sebagai catatan, setelah selesai digunakan mesin virtual harap dimatikan (Stop) agar kredit tidak cepat habis.
 3. Menggunakan mesin fisik yang sudah dilengkapi dengan sistem operasi Ubuntu 20.04 atau 18.04.
 
-### Instalasi Docker
+### Instalasi Docker pada perangkat host Ubuntu
 ```bash
 curl -fsSL https://test.docker.com -o test-docker.sh; sudo sh test-docker.sh
 sudo usermod -aG docker $(whoami)
 newgrp docker
 ```
 
-### Instalasi containernet pada perangkat host
+### Instalasi containernet pada perangkat host Ubuntu
 
 ```bash
 curl -fsSL https://bit.ly/installcontainernet -o installcontainer.sh; bash installcontainer.sh
 ```
 
-### Akses mesin virtual (VM) Mininet dengan SSH dan xterm
+### Akses mesin virtual host Ubuntu dengan SSH dan xterm
 Untuk mengakses mesin virtual menggunakan protokol SSH, anda dapat memanfaatkan aplikasi Terminal (Linux/MacOS), GitBash, PowerShell atau WSL (Windows) dengan menjalankan perintag berikut.  
 
 ```bash
