@@ -14,5 +14,5 @@ cd ..
 sudo make develop
 echo "Building docker image...."
 cd ~
-git pull https://github.com/bhawiyuga/jarkom
+git pull https://github.com/bhawiyuga/jarkom.git
 docker build -f ./jarkom/containernet/Dockerfile.ubuntu1804 -t containernet:ubuntu .
