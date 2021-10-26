@@ -1,9 +1,4 @@
 #!/bin/bash
-echo "Install docker...."
-curl -fsSL https://test.docker.com -o test-docker.sh
-sudo sh test-docker.sh
-sudo usermod -aG docker $(whoami)
-newgrp docker
 echo "Install containernet...."
 sudo apt update
 sudo apt -y install ansible git aptitude
