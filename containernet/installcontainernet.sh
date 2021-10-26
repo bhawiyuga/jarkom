@@ -11,5 +11,5 @@ echo "Building docker image...."
 cd ~
 git clone https://github.com/bhawiyuga/jarkom.git
 cd ~/jarkom/containernet/
-docker build -f Dockerfile.ubuntu1804 -t containernet:ubuntu .
+docker build -f Dockerfile.ubuntu1804 -t containernet:bionic .
 cd ~
