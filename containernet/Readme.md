@@ -22,6 +22,7 @@ curl -fsSL https://bit.ly/installcontainernet -o installcontainer.sh; bash insta
 ```
 
 ### Akses mesin virtual (VM) Mininet dengan SSH dan xterm
+Untuk mengakses mesin virtual menggunakan protokol SSH, anda dapat memanfaatkan aplikasi Terminal (Linux/MacOS), GitBash, PowerShell atau WSL (Windows) dengan menjalankan perintag berikut.  
 
 ```bash
 ssh -Y user@alamat-ip-vm
