@@ -1,3 +1,10 @@
+## Install docker
+```bash
+curl -fsSL https://test.docker.com -o test-docker.sh; sudo sh test-docker.sh
+sudo usermod -aG docker $(whoami)
+newgrp docker
+```
+
 ## One line script to install containernet
 
 ```bash
