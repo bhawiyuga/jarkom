@@ -37,3 +37,10 @@ Untuk pengguna MacOS nyalakan XQuartz dan untuk pengguna Windows nyalakan Xmingw
 ```bash
 sudo xauth add $(xauth list $DISPLAY)
 ```
+## Menjalankan Containernet
+### Menjalankan Topologi 
+### Menjalankan Perintah pada Perangkat Virtual
+### Membangun Topologi Sendiri
+#### Mendefinisikan perangkat host
+#### Mendefinisikan perangkat router
+#### Mendefinisikan perintah saat startup
