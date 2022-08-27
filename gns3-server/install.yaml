@@ -21,11 +21,12 @@
       apt_repository:
         repo: "ppa:gns3/ppa"
         state: present
-    - name: install gns3-server
+    - name: install gns3-server gns3-iou
       apt:
         update_cache: yes
         name:
           - gns3-server
+          - gns3-iou
     - name: add existing user to groups
       user:
         name: "{{ ansible_user }}"
@@ -42,7 +43,7 @@
       user:
         name: gns3
         password: $6$VnsPc31aYhyOB6W6$rHiIvckG.dgUxQOzzoVg2IfCvP9B5UbJT3sd6mXM.XwAomCcgQmakgHcDtXqSLPDm2DNYNATLtXYykxpX27/T1
-        groups: libvirt,ubridge,docker
+        groups: libvirt,ubridge,docker,kvm
         append: yes
         state: present
         update_password: always
