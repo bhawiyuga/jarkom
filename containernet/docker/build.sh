@@ -1,0 +1,1 @@
+docker buildx build --platform linux/amd64,linux/arm64 -t bhawiyuga/containernet:bionic --push -f Dockerfile.containernet.ubuntu1804 .

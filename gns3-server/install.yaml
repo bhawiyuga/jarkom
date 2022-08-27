@@ -1,0 +1,56 @@
+---
+- name: Install gns3-server and docker
+  hosts: server
+  become: yes
+  tasks:
+    - name : ping
+      ping:
+    - name: Update repo
+      apt:
+        update_cache: yes
+    - name: Install docker
+      script:
+        cmd: ./script/install_docker.sh
+    - name: Add user to docker group
+      user:
+        name: "{{ ansible_user }}"
+        groups: docker
+        append: yes
+        state: present
+    - name: add gns3-server repo
+      apt_repository:
+        repo: "ppa:gns3/ppa"
+        state: present
+    - name: install gns3-server
+      apt:
+        update_cache: yes
+        name:
+          - gns3-server
+    - name: add existing user to groups
+      user:
+        name: "{{ ansible_user }}"
+        groups: libvirt,ubridge
+        append: yes
+        state: present
+    - name: copy systemd config for gns3-server
+      copy:
+        src: ./script/gns3.service.systemd
+        dest: /lib/systemd/system/gns3.service
+        owner: root
+        group: root
+    - name: add user gns3 to groups
+      user:
+        name: gns3
+        password: $6$VnsPc31aYhyOB6W6$rHiIvckG.dgUxQOzzoVg2IfCvP9B5UbJT3sd6mXM.XwAomCcgQmakgHcDtXqSLPDm2DNYNATLtXYykxpX27/T1
+        groups: libvirt,ubridge,docker
+        append: yes
+        state: present
+        update_password: always
+    - name : enable and start gns3-server service
+      systemd:
+        name: gns3
+        state: started
+        enabled: yes
+
+
+
