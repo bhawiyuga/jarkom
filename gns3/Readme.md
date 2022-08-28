@@ -16,7 +16,7 @@ https://docs.gns3.com/docs/getting-started/installation/download-gns3-vm
 
 3. Enter **gns3-server** directory
 ```
-cd gns3-server
+cd gns3/gns3-server
 ```
 
 4. Create your own **inventory.yaml** from sample file **inventory_sample.yaml** 
