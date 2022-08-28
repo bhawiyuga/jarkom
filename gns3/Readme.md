@@ -33,13 +33,15 @@ ansible-playbook install.yaml
 ansible-playbook image.yaml
 ```
 
-7. Open **GNS3 Desktop** apps on your local computer
+## Configure GNS3 Desktop using Remote Server
 
-8. Click ``Help -> Setup Wizard``
+1. Open **GNS3 Desktop** apps on your local computer
 
-9. Choose option **Run appliances on a remote server (advanced usage)**
+2. Click ``Help -> Setup Wizard``
 
-10. Specify remote server information
+3. Choose option **Run appliances on a remote server (advanced usage)**
+
+4. Specify remote server information
     - *Host* : address of remote GNS Server
     - *Port* : port of remote GNS Server (default 3080). Make sure your GNS server firewall allow incoming traffic to this port.
     -  Enable authentication
