@@ -45,8 +45,9 @@
         password: $6$VnsPc31aYhyOB6W6$rHiIvckG.dgUxQOzzoVg2IfCvP9B5UbJT3sd6mXM.XwAomCcgQmakgHcDtXqSLPDm2DNYNATLtXYykxpX27/T1
         groups: libvirt,ubridge,docker,kvm
         append: yes
+        shell: /bin/bash
         state: present
-        update_password: always
+        update_password: on_create
     - name : enable and start gns3-server service
       systemd:
         name: gns3
