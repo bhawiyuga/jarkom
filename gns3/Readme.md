@@ -19,11 +19,13 @@ https://docs.gns3.com/docs/getting-started/installation/download-gns3-vm
 cd gns3/gns3-server
 ```
 
-4. Create your own **inventory.yaml** from sample file **inventory_sample.yaml** 
+4. Create your own **inventory.yaml** from sample file :
+    - **inventory_sample_sshkey.yaml** if using key based SSH authentication.
+    - **inventory_sample_password.yaml** if using password based SSH authentication. 
 
-4. Specify the target server address, username and SSH private key path in your **inventory.yaml** file.
+4. Specify the target server address, username and password or SSH private key path in your **inventory.yaml** file.
 
-5. Execute server installation playbook.
+5. Execute server installation playbook. Skip this step if you already install it before or you are using GNS3 VM.
 ```
 ansible-playbook install.yaml
 ```
