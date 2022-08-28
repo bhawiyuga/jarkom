@@ -1,12 +1,12 @@
 # Configure GNS3 Server and Desktop
 
-## Configure GNS Server on Local VM (VirtualBox or VMWare)
+## Configure GNS3 Server on Local VM (VirtualBox or VMWare)
 
 Please follow this tutorial
 
 https://docs.gns3.com/docs/getting-started/installation/download-gns3-vm
 
-## Configure GNS Server on Remote Server (Cloud/On Premise) using Ansible
+## Configure GNS3 Server on Remote Server (Cloud/On Premise) using Ansible
 
 1. Install Ansible in your local computer
 
