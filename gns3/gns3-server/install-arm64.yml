@@ -1,0 +1,67 @@
+---
+- name: Install gns3-server and docker on arm64
+  hosts: server
+  become: yes
+  tasks:
+    - name : ping
+      ping:
+    - name: Update repo
+      apt:
+        update_cache: yes
+    - name: Install docker
+      script:
+        cmd: ./script/install_docker.sh
+    - name: Add user to docker group
+      user:
+        name: "{{ ansible_user }}"
+        groups: docker
+        append: yes
+        state: present
+    - name: add gns3-server repo
+      apt_repository:
+        repo: "ppa:gns3/ppa"
+        state: present
+    - name: install dynamips ubridge
+      apt:
+        update_cache: yes
+        name:
+          - python3-pip
+          - dynamips
+          - ubridge
+          - busybox
+    - name: install gns3-server
+      shell:
+        cmd: pip3 isntall gns3-server
+    - name: copy busybox
+      shell:
+        cmd: cp /usr/bin/busybox /usr/local/lib/python3.8/dist-packages/gns3server/compute/docker/resources/bin/busybox
+    - name: add existing user to groups
+      user:
+        name: "{{ ansible_user }}"
+        groups: ubridge
+        append: yes
+        state: present
+    
+    - name: copy systemd config for gns3-server
+      copy:
+        src: ./script/gns3-arm64.service.systemd
+        dest: /lib/systemd/system/gns3.service
+        owner: root
+        group: root
+    - name: add user gns3 to groups
+      user:
+        name: gns3
+        password: $6$VnsPc31aYhyOB6W6$rHiIvckG.dgUxQOzzoVg2IfCvP9B5UbJT3sd6mXM.XwAomCcgQmakgHcDtXqSLPDm2DNYNATLtXYykxpX27/T1
+        groups: ubridge,docker
+        append: yes
+        shell: /bin/bash
+        state: present
+        update_password: on_create
+    - name : enable and start gns3-server service
+      systemd:
+        name: gns3
+        state: started
+        enabled: yes
+
+
+
