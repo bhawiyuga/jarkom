@@ -31,10 +31,11 @@
           - busybox
     - name: install gns3-server
       shell:
-        cmd: pip3 isntall gns3-server
+        cmd: pip3 install gns3-server
     - name: copy busybox
-      shell:
-        cmd: cp /usr/bin/busybox /usr/local/lib/python3.8/dist-packages/gns3server/compute/docker/resources/bin/busybox
+      copy:
+        src: ./docker/busybox
+        dest: /usr/local/lib/python3.8/dist-packages/gns3server/compute/docker/resources/bin/busybox
     - name: add existing user to groups
       user:
         name: "{{ ansible_user }}"
