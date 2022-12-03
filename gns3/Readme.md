@@ -94,12 +94,24 @@ Persistent volumes are useful to store configuration and/or output files permane
     https://www.gns3.com/community/blog/create-a-router-with-docker-and-free-range-routing
 
     ```
-    /usr/lib/frr/watchfrr zebra eigrpd &
+    /usr/lib/frr/watchfrr -d zebra eigrpd
     vtysh
     frrouting-frr-1# conf t
     frrouting-frr-1(config)# router eigrp 10
     frrouting-frr-1(config-router)# network 192.168.0.0/24
     frrouting-frr-1(config-router)# network 10.0.0.0/30
+    frrouting-frr-1(config-router)# exit
+    frrouting-frr-1(config)# exit
+    frrouting-frr-1# wr
+    ```
+
+    ```
+    /usr/lib/frr/watchfrr -d zebra ospfd
+    vtysh
+    frrouting-frr-1# conf t
+    frrouting-frr-1(config)# router ospf
+    frrouting-frr-1(config-router)# network 192.168.0.0/24 area 0
+    frrouting-frr-1(config-router)# network 10.0.0.0/30 area 0
     frrouting-frr-1(config-router)# exit
     frrouting-frr-1(config)# exit
     frrouting-frr-1# wr
