@@ -35,7 +35,7 @@
     - name: copy busybox
       copy:
         src: ./docker/busybox
-        dest: /usr/local/lib/python3.8/dist-packages/gns3server/compute/docker/resources/bin/busybox
+        dest: /usr/local/lib/python3.10/dist-packages/gns3server/compute/docker/resources/bin/busybox
     - name: add existing user to groups
       user:
         name: "{{ ansible_user }}"
